@@ -246,8 +246,10 @@ paket-files/
 
 # FAKE - F# Make
 .fake/
+.vscode/solution-explorer/
 
 # JetBrains Rider
 .idea/
 *.sln.iml
 .DS_Store
+*.cs-template
