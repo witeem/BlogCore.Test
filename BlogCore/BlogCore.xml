@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BlogCore</name>
+    </assembly>
+    <members>
+        <member name="M:BlogCore.Controllers.OAuthController.Authenticate(BlogCore.Controllers.UserDto)">
+            <summary>
+            生成令牌
+            </summary>
+            <param name="userDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BlogCore.Controllers.WeatherForecastController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BlogCore.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{BlogCore.Controllers.WeatherForecastController},BlogCore.Application.IApplication.IAdvertisementServices)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="advertisementServices"></param>
+        </member>
+        <member name="M:BlogCore.Controllers.WeatherForecastController.Get">
+            <summary>
+            Swagger测试Get请求
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BlogCore.Controllers.WeatherForecastController.AuthorizeGet">
+            <summary>
+            基于策略的授权机制
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BlogCore.Controllers.WeatherForecastController.Sum(System.Int32,System.Int32)">
+            <summary>
+            求和
+            </summary>
+            <param name="i"></param>
+            <param name="j"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
