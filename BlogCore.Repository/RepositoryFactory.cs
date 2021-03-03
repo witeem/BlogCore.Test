@@ -1,6 +1,5 @@
 ﻿using BlogCore.Extended;
 using BlogCore.IRepository;
-using BlogCore.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +14,7 @@ namespace BlogCore.Repository
         public DefaultContext CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<DefaultContext>();
-            ProductDbContextConfigurer.Configure(builder, ConfigManagerConf.GetValue($"ConnectionStrings:{BlogCoreConsts.Default}"));
+            ProductDbContextConfigurer.Configure(builder, ConfigManagerConf.GetValue($"ConnectionStrings:Default"));
             return new DefaultContext(builder.Options);
         }
     }
