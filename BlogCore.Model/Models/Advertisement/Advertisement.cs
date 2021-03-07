@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlogCore.Repository.Models
+namespace BlogCore.Model.Models.Advertisement
 {
     public class Advertisement
     {
