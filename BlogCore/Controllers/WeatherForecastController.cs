@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BlogCore.Application.IApplication;
+﻿using BlogCore.Application.Advertisement;
+using BlogCore.Application.UserInfo;
+using BlogCore.Application.UserInfo.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BlogCore.Controllers
 {
@@ -23,15 +25,17 @@ namespace BlogCore.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IAdvertisementServices _advertisementServices;
+        private readonly IUserInfoAppService _userInfoAppService;
         /// <summary>
         /// 
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="advertisementServices"></param>
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IAdvertisementServices advertisementServices)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IAdvertisementServices advertisementServices, IUserInfoAppService userInfoAppService)
         {
             _logger = logger;
             _advertisementServices = advertisementServices;
+            _userInfoAppService = userInfoAppService;
         }
 
         /// <summary>
@@ -73,6 +77,16 @@ namespace BlogCore.Controllers
         public async Task<int> Sum(int i, int j)
         {
             return await _advertisementServices.Sum(i, j);
+        }
+
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetUserInfo")]
+        public async Task<AdverUserInfoDto> GetUserInfo()
+        {
+            return await _userInfoAppService.GetUserInfo();
         }
     }
 }

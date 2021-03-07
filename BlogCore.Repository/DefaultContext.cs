@@ -1,4 +1,5 @@
-﻿using BlogCore.Repository.Models;
+﻿using BlogCore.Model.Models;
+using BlogCore.Model.Models.Advertisement;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

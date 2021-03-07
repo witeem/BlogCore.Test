@@ -52,6 +52,12 @@ namespace BlogCore
             services.AddDbContext<DefaultContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("ConnectionStrings:Default")));
 
+            #region AutoMap
+            // 参数类型是Assembly类型的数组 表示AutoMapper将在这些程序集数组里面遍历寻找所有继承了Profile类的配置文件
+            // 在当前作用域的所有程序集里面扫描AutoMapper的配置文件
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            #endregion
+
             #region Swagger
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo()

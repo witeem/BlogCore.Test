@@ -1,10 +1,9 @@
 ﻿using Autofac.Extras.DynamicProxy;
-using BlogCore.Application.IApplication;
 using BlogCore.Domain.DomainServices.Advertisement;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace BlogCore.Application.Application
+namespace BlogCore.Application.Advertisement
 {
     [Intercept(typeof(ServiceInterceptor))]
     public class AdvertisementServices: IAdvertisementServices

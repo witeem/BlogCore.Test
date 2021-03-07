@@ -16,7 +16,7 @@
             
             </summary>
         </member>
-        <member name="M:BlogCore.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{BlogCore.Controllers.WeatherForecastController},BlogCore.Application.IApplication.IAdvertisementServices)">
+        <member name="M:BlogCore.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{BlogCore.Controllers.WeatherForecastController},BlogCore.Application.Advertisement.IAdvertisementServices,BlogCore.Application.UserInfo.IUserInfoAppService)">
             <summary>
             
             </summary>
@@ -41,6 +41,12 @@
             </summary>
             <param name="i"></param>
             <param name="j"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BlogCore.Controllers.WeatherForecastController.GetUserInfo">
+            <summary>
+            获取用户信息
+            </summary>
             <returns></returns>
         </member>
     </members>
