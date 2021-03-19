@@ -10,6 +10,6 @@ namespace BlogCore.Core.UserInfo
 
         public string Name { get; set; }
 
-        public List<string> RoleCodes { get; set; }
+        public string RoleCodes { get; set; }
     }
 }

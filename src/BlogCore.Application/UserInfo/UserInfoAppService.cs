@@ -24,7 +24,7 @@ namespace BlogCore.Application.UserInfo
             {
                 Id = 1,
                 Name = "Witeem",
-                RoleCodes = new List<string>() {"Amdin","Laoban" }
+                RoleCodes = "admin"
             };
             return _mapper.Map<AdverUserInfoDto>(userInfo);
         }

@@ -1,4 +1,5 @@
 ﻿using BlogCore.Core.Advertisement;
+using BlogCore.Core.UserInfo;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogCore.EFCore
@@ -10,6 +11,7 @@ namespace BlogCore.EFCore
         }
 
         public DbSet<Advertisement> Advertisement { get; set; }
+        public DbSet<AdverUserInfo> AdverUserInfo { get; set; }
 
         /// <summary>
         /// TODO:当数据库创建完成后， EF 创建一系列数据表，表名默认和 DbSet 属性名相同。 集合属性的名称一般使用复数形式，但不同的开发人员的命名习惯可能不一样，
@@ -19,6 +21,7 @@ namespace BlogCore.EFCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Advertisement>().ToTable("t_advertisement");
+            modelBuilder.Entity<AdverUserInfo>().ToTable("t_adveruserinfo");
             base.OnModelCreating(modelBuilder);
         }
     }

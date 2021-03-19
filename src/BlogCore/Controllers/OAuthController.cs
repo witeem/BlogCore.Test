@@ -1,12 +1,17 @@
-﻿using BlogCore.Domain;
+﻿using BlogCore.Application.Advertisement;
+using BlogCore.Application.UserInfo;
+using BlogCore.Application.UserInfo.Dtos;
+using BlogCore.Domain;
 using BlogCore.Domain.DomainServices.Dto;
 using IdentityModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BlogCore.Controllers
 {
@@ -14,11 +19,13 @@ namespace BlogCore.Controllers
     [ApiController]
     public class OAuthController : ControllerBase
     {
-        private UserStore _store;
+        private IAdvertisementService _advertisementService;
+        private IUserInfoAppService _userInfoAppService;
 
-        public OAuthController(UserStore store)
+        public OAuthController(IAdvertisementService advertisementService, IUserInfoAppService userInfoAppService)
         {
-            _store = store;
+            _advertisementService = advertisementService;
+            _userInfoAppService = userInfoAppService;
         }
 
         /// <summary>
@@ -27,9 +34,9 @@ namespace BlogCore.Controllers
         /// <param name="userDto"></param>
         /// <returns></returns>
         [HttpPost("Authenticate")]
-        public IActionResult Authenticate([FromBody]UserDto userDto)
+        public async Task<ActionResult> Authenticate([FromBody]UserDto userDto)
         {
-            var user = _store.FindUser(userDto.UserName, userDto.Password);
+            var user = await _advertisementService.FindUser(userDto.UserName, userDto.Password);
             if (user == null) return Unauthorized();
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(AppConsts.Secret);
@@ -66,11 +73,22 @@ namespace BlogCore.Controllers
         }
 
 
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetUserInfo")]
+        public async Task<AdverUserInfoDto> GetUserInfo()
+        {
+            return await _userInfoAppService.GetUserInfo();
+        }
+
+
     }
 
 
     public class UserDto
-    { 
+    {
         public string UserName { get; set; }
 
         public string Password { get; set; }

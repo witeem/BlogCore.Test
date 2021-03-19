@@ -24,14 +24,14 @@ namespace BlogCore.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IAdvertisementServices _advertisementServices;
+        private readonly IAdvertisementService _advertisementServices;
         private readonly IUserInfoAppService _userInfoAppService;
         /// <summary>
         /// 
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="advertisementServices"></param>
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IAdvertisementServices advertisementServices, IUserInfoAppService userInfoAppService)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IAdvertisementService advertisementServices, IUserInfoAppService userInfoAppService)
         {
             _logger = logger;
             _advertisementServices = advertisementServices;
@@ -77,16 +77,6 @@ namespace BlogCore.Controllers
         public async Task<int> Sum(int i, int j)
         {
             return await _advertisementServices.Sum(i, j);
-        }
-
-        /// <summary>
-        /// 获取用户信息
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("GetUserInfo")]
-        public async Task<AdverUserInfoDto> GetUserInfo()
-        {
-            return await _userInfoAppService.GetUserInfo();
         }
     }
 }

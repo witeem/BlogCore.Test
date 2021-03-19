@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UserInfo\Maps\AdverUserInfoProfile.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UserInfo\Maps\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 

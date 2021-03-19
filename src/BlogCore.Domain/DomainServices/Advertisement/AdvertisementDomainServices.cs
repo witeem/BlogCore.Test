@@ -1,6 +1,9 @@
-﻿using BlogCore.Extended;
+﻿using BlogCore.Domain.DomainServices.Dto;
+using BlogCore.Extended;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BlogCore.Domain.DomainServices.Advertisement
@@ -8,6 +11,10 @@ namespace BlogCore.Domain.DomainServices.Advertisement
     public class AdvertisementDomainServices : IAdvertisementDomainServices
     {
         private readonly ILogger<AdvertisementDomainServices> _logger;
+        private static List<User> _users = new List<User>() {
+            new User {  Id=1, Name="alice", Password="alice", Email="alice@gmail.com", PhoneNumber="18800000001", Birthday=DateTime.Now },
+            new User {  Id=1, Name="bob", Password="bob", Email="bob@gmail.com", PhoneNumber="18800000002", Birthday=DateTime.Now.AddDays(1)}
+        };
 
         public AdvertisementDomainServices(ILogger<AdvertisementDomainServices> logger)
         {
@@ -20,6 +27,12 @@ namespace BlogCore.Domain.DomainServices.Advertisement
             string secret = ConfigManagerConf.GetValue("Audience:Secret");
             Console.WriteLine($"Default:{secret}");
             return i * j;
+        }
+
+        public async Task<User> FindUser(string userName, string password)
+        {
+            await Task.Delay(100);
+            return _users.FirstOrDefault(_ => _.Name == userName && _.Password == password);
         }
     }
 }

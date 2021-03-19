@@ -1,15 +1,31 @@
-﻿using System;
+﻿using AutoMapper;
+using BlogCore.Core.UserInfo;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BlogCore.Application.UserInfo.Dtos
 {
+    [AutoMap(typeof(AdverUserInfo))]
     public class AdverUserInfoDto
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public List<string> RoleCodes { get; set; }
+        public string RoleCodes { get; set; }
+
+        public List<string> RoleCodeList
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(RoleCodes))
+                {
+                    return RoleCodes.Split(',').ToList();
+                }
+                return new List<string>();
+            }
+        }
     }
 }
