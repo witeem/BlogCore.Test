@@ -1,4 +1,4 @@
-﻿using BlogCore.Domain.DomainServices.Dto;
+﻿using BlogCore.Domain.DomainServices.Entitys;
 using BlogCore.Extended;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,9 +11,9 @@ namespace BlogCore.Domain.DomainServices.Advertisement
     public class AdvertisementDomainServices : IAdvertisementDomainServices
     {
         private readonly ILogger<AdvertisementDomainServices> _logger;
-        private static List<User> _users = new List<User>() {
-            new User {  Id=1, Name="alice", Password="alice", Email="alice@gmail.com", PhoneNumber="18800000001", Birthday=DateTime.Now },
-            new User {  Id=1, Name="bob", Password="bob", Email="bob@gmail.com", PhoneNumber="18800000002", Birthday=DateTime.Now.AddDays(1)}
+        private static List<AdverUserEntity> _users = new List<AdverUserEntity>() {
+            new AdverUserEntity {  Id=1, Name="alice", Password="alice", Email="alice@gmail.com", PhoneNumber="18800000001", Birthday=DateTime.Now },
+            new AdverUserEntity {  Id=1, Name="bob", Password="bob", Email="bob@gmail.com", PhoneNumber="18800000002", Birthday=DateTime.Now.AddDays(1)}
         };
 
         public AdvertisementDomainServices(ILogger<AdvertisementDomainServices> logger)
@@ -29,7 +29,7 @@ namespace BlogCore.Domain.DomainServices.Advertisement
             return i * j;
         }
 
-        public async Task<User> FindUser(string userName, string password)
+        public async Task<AdverUserEntity> FindUser(string userName, string password)
         {
             await Task.Delay(100);
             return _users.FirstOrDefault(_ => _.Name == userName && _.Password == password);

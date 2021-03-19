@@ -13,4 +13,8 @@
     <ProjectReference Include="..\BlogCore.Extended\BlogCore.Extended.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extended\" />
+  </ItemGroup>
+
 </Project>

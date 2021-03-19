@@ -24,4 +24,9 @@ namespace BlogCore.Core
         Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate, string ordering, bool isNoTracking);
         #endregion
     }
+
+    public interface IRepositoryBase<TEntity> : IRepositoryBase<TEntity, long>, IDisposable where TEntity : class
+    { 
+        
+    }
 }

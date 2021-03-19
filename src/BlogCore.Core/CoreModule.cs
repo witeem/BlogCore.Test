@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using BlogCore.Core.ModulesInterface;
 using System;
 using System.Collections.Generic;
 using System.Text;

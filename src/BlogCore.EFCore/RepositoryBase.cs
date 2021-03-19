@@ -127,4 +127,11 @@ namespace BlogCore.EFCore
         }
         #endregion
     }
+
+    public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, long>, IRepositoryBase<TEntity> where TEntity : class
+    {
+        public RepositoryBase(DefaultContext context) : base(context)
+        {
+        }
+    }
 }

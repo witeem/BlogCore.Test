@@ -1,5 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using BlogCore.Core;
 using BlogCore.Domain;
 using BlogCore.EFCore;
 using BlogCore.Extended;
@@ -48,7 +49,7 @@ namespace BlogCore
 
             //注入EF Core数据库上下文服务
             services.AddDbContext<DefaultContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("ConnectionStrings:Default")));
+                options.UseMySQL(Configuration.GetConnectionString(BlogCoreConsts.Default)));
 
             #region AutoMap
             // 参数类型是Assembly类型的数组 表示AutoMapper将在这些程序集数组里面遍历寻找所有继承了Profile类的配置文件

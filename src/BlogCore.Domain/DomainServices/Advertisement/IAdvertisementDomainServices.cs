@@ -1,5 +1,5 @@
 ﻿using BlogCore.Core.Serivces;
-using BlogCore.Domain.DomainServices.Dto;
+using BlogCore.Domain.DomainServices.Entitys;
 using System.Threading.Tasks;
 
 namespace BlogCore.Domain.DomainServices.Advertisement
@@ -8,6 +8,6 @@ namespace BlogCore.Domain.DomainServices.Advertisement
     {
         Task<int> Sum(int i, int j);
 
-        Task<User> FindUser(string userName, string password);
+        Task<AdverUserEntity> FindUser(string userName, string password);
     }
 }
