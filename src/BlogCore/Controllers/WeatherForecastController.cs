@@ -78,5 +78,16 @@ namespace BlogCore.Controllers
         {
             return await _advertisementServices.Sum(i, j);
         }
+
+
+        /// <summary>
+        /// 拦截器测试
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("TestInterceptor")]
+        public void TestInterceptor()
+        {
+            _advertisementServices.TestInterceptor();
+        }
     }
 }
