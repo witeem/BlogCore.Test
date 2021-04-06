@@ -11,8 +11,8 @@ namespace BlogCore
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterModule(new ApplicationModule());
-            builder.RegisterModule(new DomainModule());
             builder.RegisterModule(new CoreModule());
+            builder.RegisterModule(new DomainModule());
             builder.RegisterModule(new EFCoreModule());
         }
     }

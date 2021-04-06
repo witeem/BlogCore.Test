@@ -17,19 +17,5 @@ namespace BlogCore.Application.Advertisement
             _mapper = mapper;
             _advertisementDomainServices = advertisementDomainServices;
         }
-        public Task<AdverUserEntity> FindUser(string userName, string password)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<int> Sum(int i, int j)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void TestInterceptor()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

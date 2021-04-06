@@ -5,16 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Extended\**" />
+    <EmbeddedResource Remove="Extended\**" />
+    <None Remove="Extended\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BlogCore.Extended\BlogCore.Extended.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Extended\" />
   </ItemGroup>
 
 </Project>

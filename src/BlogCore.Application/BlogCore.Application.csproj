@@ -5,12 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModels\**" />
+    <EmbeddedResource Remove="ViewModels\**" />
+    <None Remove="ViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="UserInfo\Maps\AdverUserInfoProfile.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="UserInfo\Maps\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>

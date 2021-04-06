@@ -66,28 +66,5 @@ namespace BlogCore.Controllers
         {
             return new string[] { "SystemOrAdmin", "true" };
         }
-
-        /// <summary>
-        /// 求和
-        /// </summary>
-        /// <param name="i"></param>
-        /// <param name="j"></param>
-        /// <returns></returns>
-        [HttpGet("Sum")]
-        public async Task<int> Sum(int i, int j)
-        {
-            return await _advertisementServices.Sum(i, j);
-        }
-
-
-        /// <summary>
-        /// 拦截器测试
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("TestInterceptor")]
-        public void TestInterceptor()
-        {
-            _advertisementServices.TestInterceptor();
-        }
     }
 }

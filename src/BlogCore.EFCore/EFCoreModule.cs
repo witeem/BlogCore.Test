@@ -25,8 +25,6 @@ namespace BlogCore.EFCore
             ////动态注入拦截器
             //.EnableInterfaceInterceptors()
             //.InterceptedBy(typeof(OpsLogInterceptor), typeof(EasyCachingInterceptor));
-
-            //builder.RegisterType(typeof(AdvertisementDomainServices)).As<IAdvertisementDomainServices>().InstancePerLifetimeScope();
         }
     }
 }

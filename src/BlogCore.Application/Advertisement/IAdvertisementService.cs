@@ -10,10 +10,5 @@ namespace BlogCore.Application.Advertisement
 {
     public interface IAdvertisementService : IAppService
     {
-        Task<int> Sum(int i, int j);
-
-        Task<AdverUserEntity> FindUser(string userName, string password);
-
-        void TestInterceptor();
     }
 }

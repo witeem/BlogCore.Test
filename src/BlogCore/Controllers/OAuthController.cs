@@ -17,12 +17,10 @@ namespace BlogCore.Controllers
     [ApiController]
     public class OAuthController : ControllerBase
     {
-        private IAdvertisementService _advertisementService;
         private IUserInfoAppService _userInfoAppService;
 
-        public OAuthController(IAdvertisementService advertisementService, IUserInfoAppService userInfoAppService)
+        public OAuthController(IUserInfoAppService userInfoAppService)
         {
-            _advertisementService = advertisementService;
             _userInfoAppService = userInfoAppService;
         }
 
@@ -34,7 +32,7 @@ namespace BlogCore.Controllers
         [HttpPost("Authenticate")]
         public async Task<ActionResult> Authenticate([FromBody]UserDto userDto)
         {
-            var user = await _advertisementService.FindUser(userDto.UserName, userDto.Password);
+            var user = await _userInfoAppService.GetUserInfo();
             if (user == null) return Unauthorized();
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(AppConsts.Secret);
@@ -48,8 +46,8 @@ namespace BlogCore.Controllers
                     new Claim(JwtClaimTypes.Issuer,"http://localhost:5200"),
                     new Claim(JwtClaimTypes.Id, user.Id.ToString()),
                     new Claim(JwtClaimTypes.Name, user.Name),
-                    new Claim(JwtClaimTypes.Email, user.Email),
-                    new Claim(JwtClaimTypes.PhoneNumber, user.PhoneNumber)
+                    new Claim(JwtClaimTypes.Email, user.Email ?? "http://witeem@126.com"),
+                    new Claim(JwtClaimTypes.PhoneNumber, user.PhoneNumber ?? "13570501792")
                 }),
                 Expires = expiresAt,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -79,6 +77,16 @@ namespace BlogCore.Controllers
         public async Task<AdverUserInfoDto> GetUserInfo()
         {
             return await _userInfoAppService.GetUserInfo();
+        }
+
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetUserInfo")]
+        public async Task<AdverUserInfoDto> Sum()
+        {
+            return await _userInfoAppService.Sum();
         }
 
 

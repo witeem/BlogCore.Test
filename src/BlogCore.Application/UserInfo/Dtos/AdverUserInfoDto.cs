@@ -16,6 +16,10 @@ namespace BlogCore.Application.UserInfo.Dtos
 
         public string RoleCodes { get; set; }
 
+        public string Email { get; set; }
+
+        public string PhoneNumber { get; set; }
+
         public List<string> RoleCodeList
         {
             get

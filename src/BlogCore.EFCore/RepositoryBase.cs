@@ -1,4 +1,5 @@
 ﻿using BlogCore.Core;
+using BlogCore.Core.ModulesInterface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BlogCore.EFCore
 {
-    public abstract class RepositoryBase<TEntity, TPrimaryKey>: IRepositoryBase<TEntity, TPrimaryKey> where TEntity : class
+    public abstract class RepositoryBase<TEntity, TPrimaryKey>: IEFCore, IRepositoryBase<TEntity, TPrimaryKey> where TEntity : class
     {
         private readonly DbSet<TEntity> _dbSet;
         public DefaultContext _dbContext { get; } = null;
@@ -128,7 +129,7 @@ namespace BlogCore.EFCore
         #endregion
     }
 
-    public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, long>, IRepositoryBase<TEntity> where TEntity : class
+    public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, long>, IEFCore, IRepositoryBase<TEntity> where TEntity : class
     {
         public RepositoryBase(DefaultContext context) : base(context)
         {
