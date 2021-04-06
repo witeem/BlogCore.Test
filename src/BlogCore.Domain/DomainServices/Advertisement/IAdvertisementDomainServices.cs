@@ -7,7 +7,7 @@ namespace BlogCore.Domain.DomainServices.Advertisement
 {
     public interface IAdvertisementDomainServices: IDomainService
     {
-        Task<int> Sum(int i, int j);
+        Task<decimal> Sum(decimal i, decimal j);
 
         Task<AdverUserInfo> GetUserInfo();
     }

@@ -36,6 +36,11 @@ namespace BlogCore.Application.UserInfo
             //};
             return _mapper.Map<AdverUserInfoDto>(userInfo);
         }
-        
+
+
+        public async Task<decimal> Sum(decimal i, decimal j)
+        {
+            return await _advertisementDomainServices.Sum(i, j);
+        }
     }
 }

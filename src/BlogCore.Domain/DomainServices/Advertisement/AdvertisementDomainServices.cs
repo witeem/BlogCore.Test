@@ -21,7 +21,7 @@ namespace BlogCore.Domain.DomainServices.Advertisement
             _userInfoRepository = userInfoRepository;
         }
 
-        public async Task<int> Sum(int i, int j)
+        public async Task<decimal> Sum(decimal i, decimal j)
         {
             await Task.Delay(100);
             string secret = ConfigManagerConf.GetValue("Audience:Secret");

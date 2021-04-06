@@ -7,5 +7,7 @@ namespace BlogCore.Application.UserInfo
     public interface IUserInfoAppService : IAppService
     {
        Task<AdverUserInfoDto> GetUserInfo();
+
+        Task<decimal> Sum(decimal i, decimal j);
     }
 }

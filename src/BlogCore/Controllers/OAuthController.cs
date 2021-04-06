@@ -83,10 +83,10 @@ namespace BlogCore.Controllers
         /// 获取用户信息
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GetUserInfo")]
-        public async Task<AdverUserInfoDto> Sum()
+        [HttpGet("Sum")]
+        public async Task<decimal> Sum(decimal i,decimal j)
         {
-            return await _userInfoAppService.Sum();
+            return await _userInfoAppService.Sum(i,j);
         }
 
 
