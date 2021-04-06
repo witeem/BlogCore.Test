@@ -10,5 +10,7 @@ namespace BlogCore.Domain.DomainServices.Advertisement
         Task<decimal> Sum(decimal i, decimal j);
 
         Task<AdverUserInfo> GetUserInfo();
+
+        Task<AdverUserInfo> AddUserInfo(AdverUserInfo input);
     }
 }

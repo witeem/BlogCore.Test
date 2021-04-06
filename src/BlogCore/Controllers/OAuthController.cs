@@ -80,6 +80,16 @@ namespace BlogCore.Controllers
         }
 
         /// <summary>
+        /// 新增用户信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("AddUserInfo")]
+        public async Task<AdverUserInfoDto> AddUserInfo([FromBody] AdverUserInfoDto input)
+        {
+            return await _userInfoAppService.AddUserInfo(input);
+        }
+
+        /// <summary>
         /// 获取用户信息
         /// </summary>
         /// <returns></returns>

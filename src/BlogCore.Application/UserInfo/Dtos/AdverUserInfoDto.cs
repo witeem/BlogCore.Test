@@ -7,7 +7,6 @@ using System.Text;
 
 namespace BlogCore.Application.UserInfo.Dtos
 {
-    [AutoMap(typeof(AdverUserInfo))]
     public class AdverUserInfoDto
     {
         public int Id { get; set; }

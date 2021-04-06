@@ -38,6 +38,13 @@ namespace BlogCore.Application.UserInfo
         }
 
 
+        public async Task<AdverUserInfoDto> AddUserInfo(AdverUserInfoDto input)
+        {
+            var _input = _mapper.Map<AdverUserInfo>(input);
+            var userInfo = await _advertisementDomainServices.AddUserInfo(_input);
+            return _mapper.Map<AdverUserInfoDto>(userInfo);
+        }
+
         public async Task<decimal> Sum(decimal i, decimal j)
         {
             return await _advertisementDomainServices.Sum(i, j);

@@ -34,5 +34,18 @@ namespace BlogCore.Domain.DomainServices.Advertisement
         {
             return await _userInfoRepository.GetAsync(m => m.Id == 1, true);
         }
+
+        public async Task<AdverUserInfo> AddUserInfo(AdverUserInfo input)
+        {
+            if (input != null)
+            {
+                var result = await _userInfoRepository.InsertAsync(input, true);
+                if (result)
+                {
+                    return await _userInfoRepository.GetAsync(m => m.Name == input.Name && m.RoleCodes == input.RoleCodes, true);
+                }
+            }
+            return null;
+        }
     }
 }
